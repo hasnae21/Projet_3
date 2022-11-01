@@ -12,6 +12,6 @@
 
 
 
-## Wireframes
+## Home page
 
 ![image](https://user-images.githubusercontent.com/92023794/199241691-d655f22f-bc02-4102-89e4-c7c56b138c1a.png)
