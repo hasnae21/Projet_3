@@ -8,10 +8,7 @@ https://jira.external-share.com/issue/3115b2cb-3fd5-44af-86d6-8ffbd6c6e313
 
 
 
-les diagrammes de conception :
-https://github.com/hasnae21/Autoformation_UML.git
-
-Présentation :
+Diagrammes de conception & Tableau de gestion des Tâches:
 https://docs.google.com/presentation/d/1v2hj96lHxPiQPOVl0SdrZODLnUFRQBazQOricAW4Zfc/edit?usp=sharing
 
 
