@@ -11,7 +11,7 @@
 Dans le but de simplifier la gestion des briefs projet aux formateurs de Solicode. Votre mission est de créer une application fullstack à base de Laravel et Mysql qui permet la manipulation des briefs et tâches dans Solicode
 
 ### Diagrammes de conception & Tableau de gestion des Tâches:
-## https://docs.google.com/presentation/d/1v2hj96lHxPiQPOVl0SdrZODLnUFRQBazQOricAW4Zfc/edit?usp=sharing
+### https://docs.google.com/presentation/d/1v2hj96lHxPiQPOVl0SdrZODLnUFRQBazQOricAW4Zfc/edit?usp=sharing
 
 
 ### Home page
