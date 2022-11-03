@@ -13,7 +13,3 @@ Dans le but de simplifier la gestion des briefs projet aux formateurs de Solicod
 
 ### Diagrammes de conception & Tableau de gestion des Tâches:
 ### https://docs.google.com/presentation/d/1v2hj96lHxPiQPOVl0SdrZODLnUFRQBazQOricAW4Zfc/edit?usp=sharing
-
-
-### Home page
-![image](https://user-images.githubusercontent.com/92023794/199241691-d655f22f-bc02-4102-89e4-c7c56b138c1a.png)
