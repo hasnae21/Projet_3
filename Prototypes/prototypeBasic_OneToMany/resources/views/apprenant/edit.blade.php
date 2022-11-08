@@ -10,7 +10,7 @@ Modifier un Apprenent
     @csrf
 
     <label class="name" for="inputEmail4">Nom:</label>
-    <input type="text" name="name" value="{{$value->nom}}">
+    <input type="text" name="nom" value="{{$value->nom}}">
 <br>
     <label class="name" for="inputPassword4">Prenom :</label>
     <input type="text" value="{{$value->prenom}}" name="prenom">

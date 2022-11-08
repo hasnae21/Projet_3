@@ -21,7 +21,7 @@ Home
 
 <div id="ajax_search_result">
 
-    <table border="1px">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>#</th>

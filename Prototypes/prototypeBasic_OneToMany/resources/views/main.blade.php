@@ -15,7 +15,7 @@
 
 <body>
 
-    <div style="width: 50%; margin:10% auto;">
+    <div style="width: 70%; margin:5% auto;">
 
         @yield('content')
 

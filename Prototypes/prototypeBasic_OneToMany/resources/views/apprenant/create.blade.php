@@ -7,7 +7,7 @@ New Apprenent
 <h2> Ajouter un Apprenent</h2>
 <br>
 
-<form action="{{url('adds')}}" method="POST" class="namee">
+<form action="/adds" method="POST">
     @csrf
 
     <label for="1">Nom Apprenent :</label>
@@ -19,7 +19,7 @@ New Apprenent
     <label for="3">Email Apprenent:</label>
     <input type="text" name="email" id="3">
     <br>
-    <input type="text" value="{{$id}}" name="promotion_id">
+    <input type="hidden" value="{{$id}}" name="promotion_id">
     <button type="submit">Ajouter</button>
 
 </form>

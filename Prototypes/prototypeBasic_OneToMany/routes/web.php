@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ApprenantController;
 
 /*
 |--------------------------------------------------------------------------

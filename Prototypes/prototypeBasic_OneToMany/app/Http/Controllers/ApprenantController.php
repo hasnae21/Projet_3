@@ -21,7 +21,7 @@ class ApprenantController extends Controller
 
 
     //ajouter Promotion
-    public function store(CreateApprenantRequest $request)
+    public function store(request $request)
     {
         Apprenant::create([
             'nom' => $request->nom,
