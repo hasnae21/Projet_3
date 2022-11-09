@@ -14,7 +14,6 @@ Home
 <!--  -->
 
 <div>
-<h1>Table promotions</h1>
     <a href="add_form">Ajouter une promotion</a>
     <input type="text" id="searchbypromoname" placeholder="Rechercher une promotion">
 </div>
@@ -49,7 +48,6 @@ Home
             @php $i++; @endphp
             @endforeach
             @endif
-
 
         </tbody>
     </table>
