@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Brief extends Model
 {
     use HasFactory;
+
+    protected $table = "briefs";
+
+    protected $fillable = [
+        'num_brief',
+        'date_debut',
+        'date_fin',
+    ];
+
 }

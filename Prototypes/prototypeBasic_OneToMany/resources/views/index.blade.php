@@ -1,6 +1,6 @@
 @extends('main')
 @section('title')
-Home
+Home Promotion
 @endsection
 
 @section('content')

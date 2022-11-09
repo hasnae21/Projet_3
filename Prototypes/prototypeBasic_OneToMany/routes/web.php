@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ApprenantController;
+
+use App\Http\Controllers\BriefController;
+use App\Http\Controllers\TacheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +40,7 @@ Route::get('search',[PromotionController::class,'search']);
 
 
 
-//route ampprenant
+//route apprenant
 
 Route::get('/add_forms/{id}',[ApprenantController::class,'create']);
 Route::post('/adds',[ApprenantController::class,'store']);
@@ -50,3 +54,18 @@ Route::get('searchs',[ApprenantController::class,'searchs']);
 
 
 
+//route brief
+
+Route::get('brief',[BriefController::class,'index']);
+Route::get('brief/create',[BriefController::class,'create']);
+Route::post('brief',[BriefController::class,'store']);
+
+
+// Route::post('/adds',[BriefController::class,'store']);
+
+// Route::get('/edit_forms/{id}',[BriefController::class,'edit']);   //page modifier apprenant
+// Route::post('/updates/{id}',[BriefController::class,'update']);
+
+// Route::get('/deletes/{id}',[BriefController::class,'destroy']);
+
+// Route::get('searchs',[BriefController::class,'searchs']);

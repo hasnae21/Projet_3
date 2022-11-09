@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brief;
 use Illuminate\Http\Request;
+
+// use App\Models\Tache;
+
+// use App\Http\Requests\CreatePrmotionRequest;
 
 class BriefController extends Controller
 {
@@ -13,7 +18,7 @@ class BriefController extends Controller
      */
     public function index()
     {
-        //
+        return view('brief.index');
     }
 
     /**
@@ -23,7 +28,7 @@ class BriefController extends Controller
      */
     public function create()
     {
-        //
+        return view('brief.create'); 
     }
 
     /**
@@ -34,7 +39,14 @@ class BriefController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Brief::create([
+            'num_brief' => $request->num_brief,
+            'nom_brief' => $request->nom_brief,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+        ]);
+
+        return redirect('brief')->with('message','Nouveau Brief ajouter');
     }
 
     /**
