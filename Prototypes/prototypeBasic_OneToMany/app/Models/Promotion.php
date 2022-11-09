@@ -11,6 +11,7 @@ class Promotion extends Model
     use HasFactory;
 
     protected $table = "promotions";
+    
     protected $colone = [
         'name'
     ];

@@ -10,11 +10,12 @@ class Apprenant extends Model
     use HasFactory;
 
     protected $table = "apprenants";
+
     protected $fillable = [
+        'promotion_id',
         'nom',
         'prenom',
         'email',
-        'promotion_id',
     ];
 
     public function promotionOne()

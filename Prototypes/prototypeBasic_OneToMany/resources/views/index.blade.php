@@ -13,11 +13,17 @@ Home
 @endif
 <!--  -->
 
+
+<!-- Ajouter promotion -->
 <div>
     <a href="add_form">Ajouter une promotion</a>
+
     <input type="text" id="searchbypromoname" placeholder="Rechercher une promotion">
 </div>
+<!--  -->
 
+<!-- table CRUD -->
+<h1>Table promotions</h1>
 <div id="ajax_search_result">
 
     <table class="table table-hover">
@@ -58,8 +64,10 @@ Home
     <!--  -->
 
 </div>
+<!--  -->
 
 @endsection
+
 
 
 @section('script')

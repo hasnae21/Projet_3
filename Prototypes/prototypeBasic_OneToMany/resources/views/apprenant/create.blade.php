@@ -26,7 +26,7 @@ New Apprenent
 
 <!--
 <div style="color:red;">
-    @error('new')
+    @error('name')
     <span>{{$message}}</span>
     @enderror
 </div> -->
