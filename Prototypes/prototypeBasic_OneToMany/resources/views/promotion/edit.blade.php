@@ -8,13 +8,12 @@ Liste des Apprenents
 @foreach ($promotion as $value)
 
 <form action="{{url('updates')}}/{{$value->id}}" method="POST">
-    @csrf
+@csrf
 
 <h1 class="text title">     Table Apprenants de la promotion : {{$value->name}}     </h1>
 
 <button onclick="change()" > Modifier Promotion</button>
 <input type="hidden" class="inputHidden" value="{{$value->name}}" name="name">
-
 </form>
 
 <div style="padding:25px 0">
