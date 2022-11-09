@@ -20,14 +20,14 @@ class ApprenantController extends Controller
 
 
 
-    //ajouter Promotion
+    //ajouter apprenant
     public function store(request $request)
     {
         Apprenant::create([
+            'promotion_id' => $request->promotion_id,
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
-            'promotion_id' => $request->promotion_id,
         ]);
 
         return  redirect(url('edit_form/'.$request->promotion_id));  ///edit_form promo
@@ -36,7 +36,7 @@ class ApprenantController extends Controller
 
 
 
-    // modifier Apprenant
+    // modifier apprenant
     public function edit($id)
     {
         $apprenant = Apprenant::where('id', $id)
@@ -50,10 +50,10 @@ class ApprenantController extends Controller
     {
         Apprenant::where('id', $id)
             ->update([
+                'promotion_id' => $request->promotion_id,
                 'nom' => $request->nom,
                 'prenom' => $request->prenom,
                 'email' => $request->email,
-                'promotion_id' => $request->promotion_id,
             ]);
 
         return redirect(url('edit_form/'.$request->promotion_id));  ///edit_form apprenants
@@ -62,7 +62,8 @@ class ApprenantController extends Controller
 
 
 
-    //supprmer Apprenant
+    
+    //supprimer apprenant
     public function destroy($id)
     {
         Apprenant::where('id', $id)

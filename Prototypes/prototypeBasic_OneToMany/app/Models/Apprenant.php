@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Promotion;
+
 
 class Apprenant extends Model
 {
@@ -18,8 +20,8 @@ class Apprenant extends Model
         'email',
     ];
 
-    public function promotionOne()
-    {
-        return $this->belongsTo(Apprenant::class)->withDefault();
-    }
+    // public function apprenants()
+    // {
+    //     return $this->belongsTo(Apprenant::class)->withDefault();
+    // }
 }

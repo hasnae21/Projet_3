@@ -25,14 +25,14 @@ class CreatePrmotionRequest extends FormRequest
     public function rules()
     {
         return [
-        'new'=>'required',
+        'name_p'=>'required',
         ];
     }
 
     public function messages()
     {
         return[
-            'new.required'=>'Veuillez entrer le nom de la promotion',
+            'name_p.required'=>'Veuillez entrer le nom de la promotion',
         ];
     }
 

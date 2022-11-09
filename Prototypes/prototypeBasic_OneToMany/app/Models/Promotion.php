@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Apprenant;
 
 class Promotion extends Model
 {
@@ -13,11 +14,11 @@ class Promotion extends Model
     protected $table = "promotions";
     
     protected $colone = [
-        'name'
+        'name',
     ];
 
-    public function apprenantOne()
+    public function promotions()
     {
-        return $this->hasOne(Promotion::class);
+        return $this->hasMany(Apprenant::class,'promotion_id','id');
     }
 }

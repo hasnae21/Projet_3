@@ -15,20 +15,20 @@
 
 <body>
 
-    <div style="width: 70%; margin:5% auto;">
+
+    <div style="width: 70%; margin:auto; padding-top: 50px;">
 
         @yield('content')
 
     </div>
 
-    <footer style="margin-top:20%; text-align:center;">
+
+    <footer style="margin-top:5%; text-align:center;">
         <hr>
-        <p> Programmer par <b> AHOUZI Hasnae </p>
+        <p> Programmed for <b> Solicode.co</p>
     </footer>
 
 
-
-    
     <div>
         @yield('script')
     </div>

@@ -5,6 +5,14 @@ Home
 
 @section('content')
 
+
+<!-- Ajouter promotion -->
+<div style="padding:25px 0">
+    <a href="add_form">Ajouter une promotion</a>
+    <input type="text" id="searchbypromoname" placeholder="Rechercher une promotion" autocomplete="off" >
+</div>
+
+
 <!-- message de validation -->
 @if(Session::has('success'))
 <div role="alert">
@@ -14,46 +22,42 @@ Home
 <!--  -->
 
 
-<!-- Ajouter promotion -->
-<div>
-    <a href="add_form">Ajouter une promotion</a>
-
-    <input type="text" id="searchbypromoname" placeholder="Rechercher une promotion">
-</div>
-<!--  -->
-
-<!-- table CRUD -->
-<h1>Table promotions</h1>
+<!-- TABLE -->
 <div id="ajax_search_result">
-
-    <table class="table table-hover">
+    <h1>Table promotions</h1>
+    <br>
+    <table class="table  table-hover">
         <thead>
             <tr>
+                <th></th>
                 <th>#</th>
                 <th>nom de la promotion</th>
-                <th colspan="2">actions</th>
+                <th>Apprenants</th>
             </tr>
         </thead>
-        <tbody  id="tbody">
+        <tbody id="tbody">
 
             @if(!@empty($data))
             @php $i=1; @endphp
             @foreach ($data as $value)
 
             <tr>
-                <!-- <td>{{$value->id}}</td> -->
+                <td>
+                    <a href="">Modifier</a>
+                    <a href="delete/{{$value->id}}">Supprimer</a>
+                </td>
+
                 <td>{{$i}}</td>
                 <td>{{$value->name}}</td>
                 <td>
-                    <a href="edit_form/{{$value->id}}">Modifier</a>
-
-                    <a href="delete/{{$value->id}}">Supprimer</a>
+                    <a href="edit_form/{{$value->id}}">Apprenants</a>
                 </td>
             </tr>
 
             @php $i++; @endphp
             @endforeach
             @endif
+
 
         </tbody>
     </table>
@@ -64,7 +68,7 @@ Home
     <!--  -->
 
 </div>
-<!--  -->
+
 
 @endsection
 

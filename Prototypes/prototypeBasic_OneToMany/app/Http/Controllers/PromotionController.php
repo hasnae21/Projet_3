@@ -36,12 +36,10 @@ class PromotionController extends Controller
     //ajouter Promotion
     public function store(CreatePrmotionRequest $request)
     {
+
         $promo = new Promotion();
-        $promo
-            ->name = $request
-            ->input("new");
-        $promo
-            ->save();
+        $promo->name = $request->input("name_p");
+        $promo->save();
 
         return redirect('/')->with(['success' => 'Promotion ajouter']);
     }
@@ -63,15 +61,15 @@ class PromotionController extends Controller
     }
 
 
-    public function update(Request $request, $id)
-    {
-        Promotion::where('id', $id)
-            ->update([
-                'name' => $request->name
-            ]);
+    // public function update(Request $request, $id)
+    // {
+    //     Promotion::where('id', $id)
+    //         ->update([
+    //             'name' => $request->name
+    //         ]);
 
-        return redirect(url('edit_form/'.$id));
-    }
+    //     return redirect(url('edit_form/'.$id));
+    // }
 
 
 

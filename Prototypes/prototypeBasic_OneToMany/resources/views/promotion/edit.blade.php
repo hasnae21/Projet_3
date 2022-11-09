@@ -7,22 +7,18 @@ Liste des Apprenents
 
 @foreach ($promotion as $value)
 
-<form action="{{url('updates')}}/{{$value->id}}" method="POST">
-@csrf
-
-<h1 class="text title">     Table Apprenants de la promotion : {{$value->name}}     </h1>
-
-<button onclick="change()" > Modifier Promotion</button>
-<input type="hidden" class="inputHidden" value="{{$value->name}}" name="name">
-</form>
-
+<!-- ajouter apprenants -->
 <div style="padding:25px 0">
     <a href="{{url('add_forms')}}/{{$value->id}}">Ajouter Apprenant</a>
+
     <input type="text" id="search" placeholder="Rechercher un apprenant" autocomplete="off">
-    <input type="hidden" value="{{$value->promotion_id}}" id="IdKey">
 </div>
 
 @endforeach
+
+
+<h1>    Apprenants de la promotion: {{$value->name}}    </h1>
+
 
 <!-- message de validation -->
 @if(Session::has('success'))
@@ -32,8 +28,11 @@ Liste des Apprenents
 @endif
 <!--  -->
 
-<br>
+
+
+<!-- TABLE -->
 <div id="ajax_search_result">
+    <br>
 
     <table class="table table-hover">
         <thead>
@@ -83,3 +82,11 @@ Liste des Apprenents
 @section('script')
 <script src="{{asset('js/app_search.js')}}"></script>
 @endsection
+
+
+
+<!-- <form action="{{url('updates')}}/{{$value->id}}" method="POST">
+@csrf
+<button onclick="change()" > Modifier Promotion</button>
+<input type="hidden" class="inputHidden" value="{{$value->name}}" name="name">
+</form> -->
