@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Tache;
+use App\Models\Brief;
+ 
 class TacheController extends Controller
 {
     /**
@@ -26,7 +29,8 @@ class TacheController extends Controller
      */
     public function create()
     {
-        return view('tache.create');
+        $brief = Brief::all();
+        return view('tache.create',compact('brief'));
     }
 
     /**
@@ -37,7 +41,9 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        Tache::create([
+        $brief = Brief::findOrFail($request->brief_id);
+
+        $brief->briefs()->create([
             'brief_id' => $request->brief_id,
             'nom_tache' => $request->nom_tache,
             'date_debut' => $request->date_debut,
@@ -45,7 +51,7 @@ class TacheController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('tache')->with('message','Nouvelle Tache ajouter');
+        return redirect('tache/create')->with('message','Nouvelle Tâche ajouter');
     }
 
     /**

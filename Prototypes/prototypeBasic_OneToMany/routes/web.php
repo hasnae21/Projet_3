@@ -77,7 +77,8 @@ Route::get('tache/create',[TacheController::class,'create']);
 Route::post('tache',[TacheController::class,'store']);
 
 
-// Route::get('/edit_forms/{id}',[BriefController::class,'edit']);   //page modifier apprenant
+Route::get('tache/{id}/edit',[BriefController::class,'edit']);   
+
 // Route::post('/updates/{id}',[BriefController::class,'update']);
 
 // Route::get('/deletes/{id}',[BriefController::class,'destroy']);

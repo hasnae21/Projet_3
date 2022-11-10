@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('briefs', function (Blueprint $table) {
             $table->id();
-
-
             $table->string('nom_brief');
             $table->datetime('date_debut');
             $table->datetime('date_fin');
@@ -24,7 +22,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

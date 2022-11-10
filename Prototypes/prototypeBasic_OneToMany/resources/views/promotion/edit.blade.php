@@ -14,10 +14,10 @@ Liste des Apprenents
     <input type="text" id="search" placeholder="Rechercher un apprenant" autocomplete="off">
 </div>
 
-@endforeach
-
 
 <h1>    Apprenants de la promotion: {{$value->name}}    </h1>
+
+@endforeach
 
 
 <!-- message de validation -->

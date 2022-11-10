@@ -18,5 +18,10 @@ class Tache extends Model
         'date_fin',
         'description',
     ];
+    
+    public function taches()
+    {
+        return $this->belongsTo(Brief::class,'brief_id','id');
+    }
 
 }
