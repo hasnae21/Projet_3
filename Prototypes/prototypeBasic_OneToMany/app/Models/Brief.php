@@ -12,7 +12,7 @@ class Brief extends Model
     protected $table = "briefs";
 
     protected $fillable = [
-        'num_brief',
+        'nom_brief',
         'date_debut',
         'date_fin',
     ];

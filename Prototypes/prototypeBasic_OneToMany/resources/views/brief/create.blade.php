@@ -10,24 +10,21 @@ New Brief
     <form action="{{url('brief')}}" method="post">
     @csrf
 
-        <label for="0"> Numero du Brief :</label>
-        <input type="text" id="0" name="num_brief">
-<br>
         <label for="1"> Nom du Brief :</label>
-        <input type="text" id="1" name="nom_brief">
-<br>
+        <input type="text" id="1" name="nom_brief" required>
+        <br>
         <label for="2"> Date/heur de livraison :</label>
-        <input type="datetime-local" name="meeting-time" id="2" name="date_debut">
-<br>
+        <input type="datetime-local" id="2" name="date_debut" required >
+        <br>
         <label for="3"> Date/heur de récupération :</label>
-        <input type="datetime-local" name="meeting-time" id="3" name="date_fin">
-<br>
-        <button class="btn btn-primary">Ajouter</button>
-        
+        <input type="datetime-local"  id="3" name="date_fin" required>
+        <br>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+
 </form>
 
 
 <br>
-    <a href="../">Retour</a>
+    <a href="{{url('brief')}}">Retour</a>
 
 @endsection

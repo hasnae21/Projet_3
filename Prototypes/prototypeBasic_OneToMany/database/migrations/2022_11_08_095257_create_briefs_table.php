@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('briefs', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('num_brief');
-            $table->string('nom_brief');
 
+            $table->string('nom_brief');
             $table->datetime('date_debut');
             $table->datetime('date_fin');
-            
+
             $table->timestamps();
         });
     }

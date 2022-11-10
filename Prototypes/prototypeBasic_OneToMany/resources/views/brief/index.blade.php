@@ -28,4 +28,74 @@ Home Brief
 
 </div>
 
+
+<!-- TABLE -->
+<div id="">
+    <h1>Table Brief</h1>
+    <br>
+    <table class="table  table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>#</th>
+
+                <th>nom du Brief</th>
+                <th>date de debut</th>
+                <th>date de fin</th>
+
+                <th>Taches</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+            @if(!@empty($brief))
+            @php $i=1; @endphp
+
+            @foreach ($brief as $value)
+
+            <tr>
+                <td>
+                    <a href="">Modifier</a>
+                    <a href="delete/{{$value->id}}">Supprimer</a>
+                </td>
+                <td>{{$i}}</td>
+
+                <td>{{$value->nom_brief}}</td>
+                <td>{{$value->date_debut}}</td>
+                <td>{{$value->date_fin}}</td>
+
+                <td>
+                    <a href=" ">Taches</a>
+                </td>
+            </tr>
+
+            @php $i++; @endphp
+            @endforeach
+
+            @endif
+
+
+        </tbody>
+    </table>
+
+    <br>
+    {{ $brief->links() }}
+
+    <!--  -->
+
+</div>
+
+
+@section('script')
+
+@endsection
+
+
+
+
+
+
+
+
+
 @endsection

@@ -13,7 +13,7 @@ class Tache extends Model
 
     protected $fillable = [
         'brief_id',
-        'num_tache',
+        'nom_tache',
         'date_debut',
         'date_fin',
         'description',

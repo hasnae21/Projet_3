@@ -18,7 +18,10 @@ class BriefController extends Controller
      */
     public function index()
     {
-        return view('brief.index');
+        $brief = Brief::select("*")
+        ->paginate(5);
+
+        return view('brief.index' , compact('brief'));
     }
 
     /**
@@ -28,7 +31,7 @@ class BriefController extends Controller
      */
     public function create()
     {
-        return view('brief.create'); 
+        return view('brief.create');
     }
 
     /**
@@ -40,7 +43,6 @@ class BriefController extends Controller
     public function store(Request $request)
     {
         Brief::create([
-            'num_brief' => $request->num_brief,
             'nom_brief' => $request->nom_brief,
             'date_debut' => $request->date_debut,
             'date_fin' => $request->date_fin,

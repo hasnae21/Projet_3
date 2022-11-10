@@ -61,7 +61,21 @@ Route::get('brief/create',[BriefController::class,'create']);
 Route::post('brief',[BriefController::class,'store']);
 
 
-// Route::post('/adds',[BriefController::class,'store']);
+// Route::get('/edit_forms/{id}',[BriefController::class,'edit']);   //page modifier apprenant
+// Route::post('/updates/{id}',[BriefController::class,'update']);
+
+// Route::get('/deletes/{id}',[BriefController::class,'destroy']);
+
+// Route::get('searchs',[BriefController::class,'searchs']);
+
+
+
+//route Tache
+
+Route::get('tache',[TacheController::class,'index']);
+Route::get('tache/create',[TacheController::class,'create']);
+Route::post('tache',[TacheController::class,'store']);
+
 
 // Route::get('/edit_forms/{id}',[BriefController::class,'edit']);   //page modifier apprenant
 // Route::post('/updates/{id}',[BriefController::class,'update']);

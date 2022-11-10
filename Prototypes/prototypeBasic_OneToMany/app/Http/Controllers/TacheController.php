@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Tache;
 class TacheController extends Controller
 {
     /**
@@ -13,7 +13,10 @@ class TacheController extends Controller
      */
     public function index()
     {
-        //
+            $tache = Tache::select("*")
+            ->paginate(5);
+
+            return view('tache.index' , compact('tache'));
     }
 
     /**
@@ -23,7 +26,7 @@ class TacheController extends Controller
      */
     public function create()
     {
-        //
+        return view('tache.create');
     }
 
     /**
@@ -34,7 +37,15 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tache::create([
+            'brief_id' => $request->brief_id,
+            'nom_tache' => $request->nom_tache,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+            'description' => $request->description,
+        ]);
+
+        return redirect('tache')->with('message','Nouvelle Tache ajouter');
     }
 
     /**

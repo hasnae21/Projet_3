@@ -15,19 +15,16 @@ return new class extends Migration
     {
         Schema::create('taches', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('brief_id');
-            
-            $table->bigInteger('num_tache');
 
+            $table->string('nom_tache');
             $table->datetime('date_debut');
             $table->datetime('date_fin');
-
             $table->string('description');
-            
+
             $table->timestamps();
-            $table->foreign('brief_id')->references('id')->on('briefs'); 
-            
+            $table->foreign('brief_id')->references('id')->on('briefs');
+
         });
     }
 
