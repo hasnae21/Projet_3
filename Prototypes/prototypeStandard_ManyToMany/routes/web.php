@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BriefController;
-use App\Http\Controllers\AssignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +13,6 @@ use App\Http\Controllers\AssignController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::resource('/brief', BriefController::class);
-Route::resource('/assign', AssignController::class);
+Route::get('/', function () {
+    return view('welcome');
+});
