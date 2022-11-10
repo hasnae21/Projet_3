@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brief;
 use Illuminate\Http\Request;
 
-use App\Models\Tache;
-use App\Models\Brief;
- 
-class TacheController extends Controller
+class BriefController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,9 @@ class TacheController extends Controller
      */
     public function index()
     {
-            $tache = Tache::select("*")
-            ->paginate(5);
-
-            return view('tache.index' , compact('tache'));
+        //
+        $briefs = Brief::all();
+        return view('briefs.index', ['briefs' => $briefs]);
     }
 
     /**
@@ -29,8 +26,8 @@ class TacheController extends Controller
      */
     public function create()
     {
-        $brief = Brief::all();
-        return view('tache.create',compact('brief'));
+        //
+        return view('briefs.add');
     }
 
     /**
@@ -41,17 +38,8 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        $brief = Brief::findOrFail($request->brief_id);
+        //
 
-        $brief->briefs()->create([
-            'brief_id' => $request->brief_id,
-            'nom_tache' => $request->nom_tache,
-            'date_debut' => $request->date_debut,
-            'date_fin' => $request->date_fin,
-            'description' => $request->description,
-        ]);
-
-        return redirect('tache/create')->with('message','Nouvelle Tâche ajouter');
     }
 
     /**
@@ -71,10 +59,9 @@ class TacheController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
-        $tache = Tache::findOrFail($id);
-        
+        //
     }
 
     /**

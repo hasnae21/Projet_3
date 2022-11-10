@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brief;
+use App\Models\Student;
+use App\Models\StudentBrief;
 use Illuminate\Http\Request;
 
-use App\Models\Tache;
-use App\Models\Brief;
- 
-class TacheController extends Controller
+class AssignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,7 @@ class TacheController extends Controller
      */
     public function index()
     {
-            $tache = Tache::select("*")
-            ->paginate(5);
-
-            return view('tache.index' , compact('tache'));
+        //
     }
 
     /**
@@ -29,8 +26,7 @@ class TacheController extends Controller
      */
     public function create()
     {
-        $brief = Brief::all();
-        return view('tache.create',compact('brief'));
+        //
     }
 
     /**
@@ -41,17 +37,16 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        $brief = Brief::findOrFail($request->brief_id);
-
-        $brief->briefs()->create([
-            'brief_id' => $request->brief_id,
-            'nom_tache' => $request->nom_tache,
-            'date_debut' => $request->date_debut,
-            'date_fin' => $request->date_fin,
-            'description' => $request->description,
-        ]);
-
-        return redirect('tache/create')->with('message','Nouvelle Tâche ajouter');
+        //
+        // dd($request);
+        // dd(is_null(Brief::find($request->brief_id)->students()->find($request->student_id)));
+        if(is_null(Brief::find($request->brief_id)->students()->find($request->student_id))){
+            $assign = StudentBrief::create([
+                'student_id' => $request->student_id,
+                'brief_id' => $request->brief_id
+            ]);
+        }
+        return back();
     }
 
     /**
@@ -63,6 +58,8 @@ class TacheController extends Controller
     public function show($id)
     {
         //
+        $students = Student::all();
+        return view('briefs.Assign', ['students' => $students, 'id'=>$id]);
     }
 
     /**
@@ -71,10 +68,9 @@ class TacheController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(int $id)
+    public function edit($id)
     {
-        $tache = Tache::findOrFail($id);
-        
+        //
     }
 
     /**

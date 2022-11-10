@@ -44,8 +44,8 @@ Home Tâche
             <tr>
                 <td>
                     <a class="btn btn-success" href="{{ url('tache/'.$value->id.'/edit') }}">Modifier</a>
-                    
-                    <a class="btn btn-danger" href="delete/{{$value->id}}">Supprimer</a>
+
+                    <a class="btn btn-danger" href="{{ url('tache/'.$value->id.'/delete') }}">Supprimer</a>
                 </td>
                 <td>{{$i}}</td>
 
