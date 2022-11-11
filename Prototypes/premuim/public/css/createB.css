@@ -1,0 +1,13 @@
+.container{
+    width: 500px;
+    text-align: center;
+    font-weight: bold;
+    }
+    #input{
+        margin-top: 10%;
+        padding: 5%;
+        width: 450px;
+    }
+    #lab{
+        text-align: left;
+    }
