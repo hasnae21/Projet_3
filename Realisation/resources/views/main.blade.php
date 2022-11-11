@@ -24,8 +24,23 @@
 
 <body>    
 
-    <div style="width: 70%; margin:auto; padding-top: 50px;">
+    <div style="width: 70%; margin:auto; padding-top: 25px;">
 
+        <!-- navbar -->
+        <ul class="nav justify-content-center">
+                <li class="nav-item">
+                        <a class="btn btn-warning nav-link active" aria-current="page" href="/">Promotion</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                        <a class="btn btn-warning nav-link active" aria-current="page" href="/brief">Briefs</a>
+                </li>
+        </ul>
+        <br><br>
+        <!--  -->
+        
         @yield('content')
 
     </div>

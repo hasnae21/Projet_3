@@ -31,7 +31,7 @@ class PromotionController extends Controller
 
 
     //ajouter Promotion
-    public function store(CreatePrmotionRequest $request)
+    public function store(Request $request)
     {
 
         $promo = new Promotion();
@@ -102,8 +102,8 @@ class PromotionController extends Controller
                     <tr>
                         <td>' . $value->id . '</td>
                         <td>' . $value->name . '</td>
-                        <td><a href='.$urlDelete.'>Supprimer</a></td>
-                        <td><a href='.$urlEdit.'>Modifier</a></td>
+                        <td><a class="text-danger" href='.$urlDelete.'>Supprimer</a></td>
+                        <td><a class="text-success"href='.$urlEdit.'>Modifier</a></td>
                     </tr>';
                 }
 

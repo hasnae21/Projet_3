@@ -47,11 +47,13 @@ Home Brief
                 <td>{{$i}}</td>
                 <td>{{$value->nom_brief}}</td>
                 <td>
-                        <a href="/brief/delete/{{$value->id}}"> Supprimer </a>
-                        <a href="/brief/edit/{{$value->id}}"> Modifier </a>
+                        <a class="text-danger" href="/brief/delete/{{$value->id}}"> Supprimer </a>
+                        <a class="text-success" href="/brief/edit/{{$value->id}}"> Modifier </a>
                 </td>
-                <td><a href="assign">Assigner</a></td>
-                <td><a href="/tache/create"> + Tâches </a></td>
+                <td><a href="/assign">Assigner</a></td>
+                <td>
+                    <a  href="/tache/create/{{$value->id}}"> + Tâches </a>
+                </td>
             </tr>
 
             @php $i++; @endphp

@@ -46,8 +46,8 @@ Home Promotion
             <tr>
                 <td>{{$i}}</td>
                 <td>{{$value->name}}</td>
-                <td><a href="/promotion/delete/{{$value->id}}">Supprimer</a></td>
-                <td><a href="/promotion/edit/{{$value->id}}">Modifier</a></td>
+                <td><a class="text-danger" href="/promotion/delete/{{$value->id}}">Supprimer</a></td>
+                <td><a class="text-success" href="/promotion/edit/{{$value->id}}">Modifier</a></td>
             </tr>
 
             @php $i++; @endphp

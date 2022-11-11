@@ -24,36 +24,38 @@ Route::get( '/', [PromotionController::class, 'index']);
 Route::get( '/promotion/create', [PromotionController::class, 'create']);
 Route::post( '/promotion', [PromotionController::class, "store"]);
 Route::get( '/promotion/edit/{id}', [PromotionController::class, "edit"]);
-// Route::post( '/promotion/update/{id}', [PromotionController::class, "update"]);
+Route::post( '/promotion/update/{id}', [PromotionController::class, "update"]);
 Route::get( '/promotion/delete/{id}', [PromotionController::class, "destroy"]);
 Route::get( '/promotion/search',[PromotionController::class,'search']);
 
 //route apprenant
-Route::get( '/apprenant',[ApprenantController::class,'index']);
-Route::get( '/apprenant/create',[ApprenantController::class,'create']);
+Route::get( '/apprenant/create/{id}',[ApprenantController::class,'create']);
 Route::post( '/apprenant',[ApprenantController::class,'store']);
-// Route::get( '/apprenant/',[ApprenantController::class,'edit']);           //page modifier apprenant
-// Route::post( '/apprenant/',[ApprenantController::class,'update']);
-// Route::get( '/apprenant/',[ApprenantController::class,'destroy']);
+Route::get( '/apprenant/edit/{id}',[ApprenantController::class,'edit']);     //page modifier apprenant
+Route::post( '/apprenant/update/{id}',[ApprenantController::class,'update']);
+Route::get( '/apprenant/delete/{id}',[ApprenantController::class,'destroy']);
 Route::get( '/apprenant/search',[ApprenantController::class,'search']);
+
 
 //route brief
 Route::get( '/brief',[BriefController::class,'index']);
 Route::get( '/brief/create',[BriefController::class,'create']);
 Route::post( '/brief',[BriefController::class,'store']);
 Route::get( '/brief/edit/{id}',[BriefController::class,'edit']);
-// Route::post( '/brief/update/{id}',[BriefController::class,'update']);
+Route::post( '/brief/update/{id}',[BriefController::class,'update']);
 Route::get( '/brief/delete/{id}',[BriefController::class,'destroy']);
 Route::get( '/brief/search',[BriefController::class,'search']);
 
 //route tache
-Route::get( '/tache',[TacheController::class,'index']);
-Route::get( '/tache/ceate',[TacheController::class,'create']);
+Route::get( '/tache/create/{id}',[TacheController::class,'create']);
 Route::post( '/tache',[TacheController::class,'store']);
-// Route::get( '/tache/ ',[TacheController::class,'edit']);               //page modifier Tache
-// Route::post( '/tache/ ',[TacheController::class,'update']);
-// Route::get( '/tache/ ',[TacheController::class,'destroy']);
+Route::get( '/tache/edit/{id}',[TacheController::class,'edit']);     //page modifier Tache
+Route::post( '/tache/update/{id}',[TacheController::class,'update']);
+Route::get( '/tache/delete/{id}',[TacheController::class,'destroy']);
 Route::get( '/tache/search',[TacheController::class,'search']);
 
+
 //route assign
-Route::resource( 'assign', Briefs_apprenantController::class);
+// Route::resource( '/assign/{id}', Briefs_apprenantController::class);
+Route::resource('/brief', BriefController::class);
+Route::resource('/assign', Briefs_apprenantController::class);

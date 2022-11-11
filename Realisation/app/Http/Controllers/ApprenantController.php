@@ -2,83 +2,129 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Promotion;
+use App\Models\Apprenant;
+
 use Illuminate\Http\Request;
 
 class ApprenantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    //ajouter apprenant
+    public function create($id)
     {
-        //
+        return view('apprenant.create', compact('id'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+
+
+    //ajouter apprenant
+    public function store(request $request)
     {
-        //
+        Apprenant::create([
+            'promotion_id' => $request->promotion_id,
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+        ]);
+
+        return  redirect(url('/promotion/edit/'.$request->promotion_id));  ///edit_form promo
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    // modifier apprenant
     public function edit($id)
     {
-        //
+        $apprenant = Apprenant::where('id', $id)
+            ->get();
+
+        return view('apprenant.edit', compact('apprenant'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        Apprenant::where('id', $id)
+            ->update([
+                'promotion_id' => $request->promotion_id,
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'email' => $request->email,
+            ]);
+
+        return redirect(url('/apprenant/edit/'.$request->promotion_id));  ///edit_form apprenants
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+
+
+    
+    //supprimer apprenant
+    public function destroy(Request $request, $id)
     {
-        //
+        Apprenant::where('id', $id)
+            ->delete();
+
+        return back()->with(['success' => 'Apprenant suprimer']);
     }
+
+
+
+    // Rechercher Apprenant
+    public function search(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $input = $request->key;
+            $id = $request->id;
+            $output = "";
+
+            $apprenant = Apprenant::where([
+                ['promotion_id', 'like', '%' . $id . "%"],
+                ['nom', 'like', '%' . $input . '%'],
+            ])
+            ->orWhere([
+                ['promotion_id', 'like', '%' . $id . "%"],
+                ['prenom', 'like', '%' . $input . '%']
+            ])
+
+            ->orWhere([
+                ['promotion_id', 'like', '%' . $id . "%"],
+                ['email', 'like', '%' . $input . '%']
+            ])
+
+            ->join('promotions', 'apprenants.promotion_id', 'promotions.id')
+            ->get();
+
+
+            if ($apprenant) {
+                foreach ($apprenant as $value) {
+
+                    $urlEdit = (url('/apprenant/edit/'.$value->id));
+                    $urlDelete = (url('/apprenant/delete/'.$value->id));
+
+                    $output .= '
+                    <tr>
+                        <td>' . $value->id . '</td>
+                        <td>' . $value->nom . '</td>
+                        <td>' . $value->prenom . '</td>
+                        <td>' . $value->email . '</td>
+                        <td>
+                            <a class="text-success" href='.$urlDelete.'>Supprimer</a>
+                        </td>
+                        <td>
+                            <a class="text-danger" href='.$urlEdit.'>Modifier</a>
+                        <td>
+                    </tr>';
+                }
+
+                return Response($output);
+            }
+        }
+    }
+
 }

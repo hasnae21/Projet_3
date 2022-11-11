@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Brief;
 use App\Models\Tache;
-
 use Illuminate\Http\Request;
 
 
 class BriefController extends Controller
 {
+    
     public function index()
     {
         $brief = Brief::select("*")
@@ -35,7 +35,7 @@ class BriefController extends Controller
             'date_fin' => $request->date_fin,
         ]);
 
-        return redirect('brief')->with('message','Nouveau Brief ajouter');
+        return redirect('/brief')->with('success','Nouveau Brief ajouter');
     }
 
 
@@ -57,7 +57,7 @@ class BriefController extends Controller
     {
         Brief::where('id', $id)
             ->update([
-                'name' => $request->name
+                'nom_brief' => $request->nom_brief
             ]);
 
         return redirect(url('/brief/edit/'.$id));
@@ -73,8 +73,6 @@ class BriefController extends Controller
 
         return redirect('./brief')->with(['success' => 'Brief suprimer']);
     }
-
-
 
 
     // Rechercher Brief
@@ -98,8 +96,8 @@ class BriefController extends Controller
                         <td>' . $value->id . '</td>
                         <td>' . $value->nom_brief . '</td>
                         <td>
-                        <a href='.$urlDelete.'>Supprimer</a>
-                        <a href='.$urlEdit.'>Modifier</a>
+                        <a class="text-danger" href='.$urlDelete.'>Supprimer</a>
+                        <a class="text-success" href='.$urlEdit.'>Modifier</a>
                         </td>
                         <td><a href="assign">Assigner</a></td>
                         <td><a href="/tache/create"> + Tâches </a></td>
@@ -110,4 +108,14 @@ class BriefController extends Controller
             }
         }
     }
+
+    public function assignbrief()
+    {
+        $briefs = Brief::all();
+        return view('assign.index', ['briefs' => $briefs]);
+    }
+
+
+
+
 }

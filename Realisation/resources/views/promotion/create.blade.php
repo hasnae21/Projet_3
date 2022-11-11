@@ -9,9 +9,12 @@ New Promotion
 
 <form action="/promotion" method="POST">
     @csrf
+
         <label for="1" class="form-label">Nom de la promotion :</label>
         <input class="form-control" type="text" id="1" name="name_p" required>
-        <br>
+        
+        <br><br>
+        
         <button type="submit" class="btn btn-success">Ajouter</button>
 </form>
 

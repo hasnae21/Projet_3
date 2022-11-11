@@ -18,7 +18,7 @@ New Tâche
     <form action="{{url('tache')}}" method="post">
         @csrf
         
-        <label> Select Brief :</label>
+        <!-- <label> Select Brief :</label>
         <select name="brief_id" required multiple>
             @if(!@empty($brief))
                 @foreach ($brief as $value)
@@ -29,9 +29,9 @@ New Tâche
                 
                 @endforeach
             @endif
-        </select>
+        </select> -->
     
-        <!-- <input type="text" name="brief_id" value="{{$value->id}}"> -->
+        <input type="text" name="brief_id" value="{{$value->id}}">
         <br>
         
         <label for="1"> Nom de la Tâche :</label>
