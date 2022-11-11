@@ -39,8 +39,6 @@ class BriefController extends Controller
     }
 
 
-
-
     // modifier Brief
     public function edit($id)
     {
