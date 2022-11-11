@@ -52,7 +52,7 @@ Home Brief
                 </td>
                 <td><a href="assign">Assigner</a></td>
                 <td>
-                    <a class="btn btn-primary" href="/tache/create/{{$value->id}}"> + Tâches </a>
+                    <a href="/tache/create/{{$value->id}}"> + Tâches </a>
                 </td>
             </tr>
 
