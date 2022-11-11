@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="icon" href="{{asset('img/favecon.png')}}" type="image">
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery-3.6.1.min.js')}}"></script>
 
@@ -23,7 +24,6 @@
 </head>
 
 <body>
-
 
     <div style="width: 80%; margin:auto; padding-top: 50px;">
 
