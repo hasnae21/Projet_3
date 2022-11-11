@@ -45,6 +45,7 @@ Route::get( '/brief/edit/{id}',[BriefController::class,'edit']);
 Route::post( '/brief/update/{id}',[BriefController::class,'update']);
 Route::get( '/brief/delete/{id}',[BriefController::class,'destroy']);
 Route::get( '/brief/search',[BriefController::class,'search']);
+Route::get('/brief_assign', [BriefController::class,'assignbrief']);
 
 //route tache
 Route::get( '/tache/create/{id}',[TacheController::class,'create']);
@@ -57,5 +58,6 @@ Route::get( '/tache/search',[TacheController::class,'search']);
 
 //route assign
 // Route::resource( '/assign/{id}', Briefs_apprenantController::class);
-Route::resource('/brief', BriefController::class);
+// Route::post('/assigner', [Briefs_apprenantController::class,'store']);
+
 Route::resource('/assign', Briefs_apprenantController::class);

@@ -17,8 +17,10 @@ Assignement
                 
             @endforeach
             <tr>
+
                 <td>{{$value->name}}</td>
                 <td><a href="{{route('assign.show', $value->id)}}">assign</a></td>
+                
             </tr>
         </tbody>
     </table>

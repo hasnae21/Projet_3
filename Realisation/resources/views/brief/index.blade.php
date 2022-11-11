@@ -50,9 +50,9 @@ Home Brief
                         <a class="text-danger" href="/brief/delete/{{$value->id}}"> Supprimer </a>
                         <a class="text-success" href="/brief/edit/{{$value->id}}"> Modifier </a>
                 </td>
-                <td><a href="/assign">Assigner</a></td>
+                <td><a href="assign">Assigner</a></td>
                 <td>
-                    <a  href="/tache/create/{{$value->id}}"> + Tâches </a>
+                    <a class="btn btn-primary" href="/tache/create/{{$value->id}}"> + Tâches </a>
                 </td>
             </tr>
 
