@@ -1,10 +1,10 @@
-$('#searchbybriefname').on('keyup',function(){
+$('#searchbytachename').on('keyup',function(){
 
     $value=$(this).val();
     $.ajax({
 
     type : 'get',
-    url : '/brief/search',
+    url : '/tache/search',
     data:{'key':$value},
     
     success:function(data){

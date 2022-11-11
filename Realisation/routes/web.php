@@ -24,7 +24,7 @@ Route::get( '/', [PromotionController::class, 'index']);
 Route::get( '/promotion/create', [PromotionController::class, 'create']);
 Route::post( '/promotion', [PromotionController::class, "store"]);
 Route::get( '/promotion/edit/{id}', [PromotionController::class, "edit"]);
-Route::post( '/promotion/update/{id}', [PromotionController::class, "update"]);
+// Route::post( '/promotion/update/{id}', [PromotionController::class, "update"]);
 Route::get( '/promotion/delete/{id}', [PromotionController::class, "destroy"]);
 Route::get( '/promotion/search',[PromotionController::class,'search']);
 
@@ -42,7 +42,7 @@ Route::get( '/brief',[BriefController::class,'index']);
 Route::get( '/brief/create',[BriefController::class,'create']);
 Route::post( '/brief',[BriefController::class,'store']);
 Route::get( '/brief/edit/{id}',[BriefController::class,'edit']);
-Route::post( '/brief/update/{id}',[BriefController::class,'update']);
+// Route::post( '/brief/update/{id}',[BriefController::class,'update']);
 Route::get( '/brief/delete/{id}',[BriefController::class,'destroy']);
 Route::get( '/brief/search',[BriefController::class,'search']);
 
