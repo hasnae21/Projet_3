@@ -17,8 +17,7 @@ class Brief extends Model
         'date_fin',
     ];
 
-    public function briefsTache()
-    {
+    public function briefsTache(){
         return $this->hasMany(Tache::class,'brief_id','id');
     }
 

@@ -19,8 +19,7 @@ class Tache extends Model
         'description',
     ];
 
-    public function taches()
-    {
+    public function taches(){
         return $this->belongsTo(Brief::class,'brief_id','id');
     }
 }

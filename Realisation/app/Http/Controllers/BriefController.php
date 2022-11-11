@@ -2,83 +2,114 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brief;
+use App\Models\Tache;
+
 use Illuminate\Http\Request;
+
 
 class BriefController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $brief = Brief::select("*")
+        ->paginate(5);
+
+        return view('brief.index' , compact('brief'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('brief.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+    //ajouter Brief
     public function store(Request $request)
     {
-        //
+        Brief::create([
+            'nom_brief' => $request->nom_brief,
+            'date_debut' => $request->date_debut,
+            'date_fin' => $request->date_fin,
+        ]);
+
+        return redirect('brief')->with('message','Nouveau Brief ajouter');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
+    // modifier Brief
     public function edit($id)
     {
-        //
+        $brief = Brief::where('id', $id)
+            ->get();
+
+        $tache = Tache::where('brief_id', $id)
+            ->join('briefs', 'taches.brief_id', 'briefs.id')
+            ->get();
+
+            return view('brief.edit', compact('brief','tache'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        Brief::where('id', $id)
+            ->update([
+                'name' => $request->name
+            ]);
+
+        return redirect(url('/brief/edit/'.$id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
+    // suprimer Brief
     public function destroy($id)
     {
-        //
+        Brief::where('id', $id)
+            ->delete();
+
+        return redirect('./brief')->with(['success' => 'Brief suprimer']);
+    }
+
+
+
+
+    // Rechercher Brief
+    public function search(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $input = $request->key;
+            $output = "";
+            $brief = Brief::where('nom_brief', 'like', '%' . $input . "%")
+                ->get();
+
+            if ($brief) {
+                foreach ($brief as $value) {
+
+                    $urlEdit = (url('/brief/edit/'.$value->id));
+                    $urlDelete = (url('/brief/delete/'.$value->id));
+
+                    $output .= '
+                    <tr>
+                        <td>' . $value->id . '</td>
+                        <td>' . $value->nom_brief . '</td>
+                        <td>
+                        <a href='.$urlDelete.'>Supprimer</a>
+                        <a href='.$urlEdit.'>Modifier</a>
+                        </td>
+                        <td><a href="assign">Assigner</a></td>
+                        <td><a href="/tache/create"> + Tâches </a></td>
+                    </tr>';
+                }
+
+                return Response($output);
+            }
+        }
     }
 }

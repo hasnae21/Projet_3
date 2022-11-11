@@ -18,8 +18,7 @@ class Apprenant extends Model
         'email',
     ];
 
-    public function apprenantsPromotion()
-    {
+    public function apprenantsPromotion(){
         return $this->belongsTo(Promotion::class,'promotion_id','id')->withDefault();
     }
 

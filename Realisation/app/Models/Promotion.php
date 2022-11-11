@@ -16,8 +16,7 @@ class Promotion extends Model
         'name',
     ];
 
-    public function promotions()
-    {
+    public function promotions(){
         return $this->hasMany(Apprenant::class,'promotion_id','id');
     }
 }
