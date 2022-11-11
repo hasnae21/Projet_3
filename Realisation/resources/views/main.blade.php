@@ -28,7 +28,6 @@
     <div style="width: 80%; margin:auto; padding-top: 50px;">
 
         @yield('content')
-
     </div>
 
 
