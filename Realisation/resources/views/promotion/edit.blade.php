@@ -63,7 +63,7 @@ Liste des Apprenents
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Nom </th>
                 <th>Prenom</th>
                 <th>Email</th>
@@ -74,12 +74,10 @@ Liste des Apprenents
 
         <tbody id="tbody">
 
-            @if(!@empty($apprenant))
-            @php $i=1; @endphp
             @foreach ($apprenant as $value)
 
             <tr>
-                <td>{{$i}}</td>
+                <td></td>
                 <td>{{$value->nom}}</td>
                 <td>{{$value->prenom}}</td>
                 <td>{{$value->email}}</td>
@@ -92,9 +90,7 @@ Liste des Apprenents
 
             </tr>
 
-            @php $i++; @endphp
             @endforeach
-            @endif
 
         </tbody>
 

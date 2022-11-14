@@ -29,6 +29,6 @@ New Tâche
 </form>
 
 <br>
-<a href="">Retour</a>
+<a href="/brief">Retour</a>
 @endsection
 

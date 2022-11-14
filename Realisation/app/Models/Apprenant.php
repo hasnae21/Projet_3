@@ -13,7 +13,6 @@ class Apprenant extends Model
     protected $table = "apprenants";
     protected $fillable = [
         'promotion_id',
-        
         'nom',
         'prenom',
         'email',

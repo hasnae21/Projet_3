@@ -4,7 +4,7 @@ $('#searchbyappname').on('keyup',function(){
     $.ajax({
 
     type : 'get',
-    url : '/apprenant/search',
+    url : "{{route('assign.search')}}",
     data:{'key':$value},
 
     success:function(data){

@@ -62,7 +62,7 @@ class ApprenantController extends Controller
 
 
 
-    
+
     //supprimer apprenant
     public function destroy(Request $request, $id)
     {
@@ -109,7 +109,7 @@ class ApprenantController extends Controller
 
                     $output .= '
                     <tr>
-                        <td>' . $value->id . '</td>
+                        <td></td>
                         <td>' . $value->nom . '</td>
                         <td>' . $value->prenom . '</td>
                         <td>' . $value->email . '</td>

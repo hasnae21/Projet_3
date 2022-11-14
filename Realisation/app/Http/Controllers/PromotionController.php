@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class PromotionController extends Controller
 {
-    
 
     public function index()
     {
@@ -29,19 +28,15 @@ class PromotionController extends Controller
     }
 
 
-
     //ajouter Promotion
     public function store(Request $request)
     {
-
         $promo = new Promotion();
         $promo->name = $request->input("name_p");
         $promo->save();
 
         return redirect('/')->with(['success' => 'Promotion ajouter']);
     }
-
-
 
 
     // modifier Promotion
@@ -69,7 +64,6 @@ class PromotionController extends Controller
     }
 
 
-
     // suprimer Promotion
     public function destroy($id)
     {
@@ -80,13 +74,10 @@ class PromotionController extends Controller
     }
 
 
-
-
     // Rechercher Promotion
     public function search(Request $request)
     {
         if ($request->ajax()) {
-
             $input = $request->key;
             $output = "";
             $Promotion = Promotion::where('name', 'like', '%' . $input . "%")
@@ -94,19 +85,14 @@ class PromotionController extends Controller
 
             if ($Promotion) {
                 foreach ($Promotion as $value) {
-
-                    $urlEdit = (url('/promotion/edit/'.$value->id));
-                    $urlDelete = (url('/promotion/delete/'.$value->id));
-
                     $output .= '
                     <tr>
-                        <td>' . $value->id . '</td>
+                        <td></td>
                         <td>' . $value->name . '</td>
-                        <td><a class="text-danger" href='.$urlDelete.'>Supprimer</a></td>
-                        <td><a class="text-success"href='.$urlEdit.'>Modifier</a></td>
+                        <td><a class="text-danger" href=/promotion/delete/'.$value->id.'>Supprimer</a></td>
+                        <td><a class="text-success" href=/promotion/edit/'.$value->id.'>Modifier</a></td>
                     </tr>';
                 }
-
                 return Response($output);
             }
         }

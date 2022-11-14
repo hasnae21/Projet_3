@@ -9,7 +9,7 @@
         </thead>
         <tbody>
             @foreach ($briefs as $value)
-                
+
             @endforeach
             <tr>
                 <td>{{$value->name}}</td>

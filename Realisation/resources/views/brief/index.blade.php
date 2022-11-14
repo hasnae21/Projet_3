@@ -30,7 +30,7 @@ Home Brief
     <table class="table  table-hover">
         <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Nom du brief</th>
                 <th>Actions</th>
                 <th>Assigner</th>
@@ -39,36 +39,31 @@ Home Brief
         </thead>
         <tbody id="tbody">
 
-            @if(!@empty($brief))
-            @php $i=1; @endphp
             @foreach ($brief as $value)
 
             <tr>
-                <td>{{$i}}</td>
+                <td></td>
                 <td>{{$value->nom_brief}}</td>
                 <td>
                         <a class="text-danger" href="/brief/delete/{{$value->id}}"> Supprimer </a>
                         <a class="text-success" href="/brief/edit/{{$value->id}}"> Modifier </a>
                 </td>
-                <td><a href="assign">Assigner</a></td>
+                <td><a href="{{route('assign.show', $value->id)}}">Assigner</a></td>
                 <td>
                     <a href="/tache/create/{{$value->id}}"> + Tâches </a>
                 </td>
             </tr>
 
-            @php $i++; @endphp
             @endforeach
-            @endif
-            
+
         </tbody>
     </table>
 </div>
-    
+
     <br>
     {{ $brief->links() }}
     <!--  -->
 @endsection
-
 
 
 @section('script')

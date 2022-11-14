@@ -57,7 +57,5 @@ Route::get( '/tache/search',[TacheController::class,'search']);
 
 
 //route assign
-// Route::resource( '/assign/{id}', Briefs_apprenantController::class);
 // Route::post('/assigner', [Briefs_apprenantController::class,'store']);
-
 Route::resource('/assign', Briefs_apprenantController::class);

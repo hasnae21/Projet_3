@@ -53,7 +53,7 @@ Liste des Tâches
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Nom de la Tache</th>
                 <th>Date debut</th>
                 <th>Date fin</th>
@@ -65,12 +65,10 @@ Liste des Tâches
 
         <tbody id="tbody">
 
-            @if(!@empty($tache))
-            @php $i=1; @endphp
             @foreach ($tache as $value)
 
             <tr>
-                <td>{{$i}}</td>
+                <td></td>
                 <td>{{$value->nom_tache}}</td>
                 <td>{{$value->date_debut}}</td>
                 <td>{{$value->date_fin}}</td>
@@ -82,9 +80,7 @@ Liste des Tâches
 
             </tr>
 
-            @php $i++; @endphp
             @endforeach
-            @endif
 
         </tbody>
 
@@ -94,7 +90,7 @@ Liste des Tâches
 
 <br>
 
-<a href="">Retour</a>
+<a href="/brief">Retour</a>
 @endsection
 
 @section('script')
