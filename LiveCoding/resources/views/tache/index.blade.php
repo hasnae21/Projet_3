@@ -5,10 +5,10 @@ Liste des Tâches
 
 @section('content')
 
-<!-- @foreach ($brief as $value) -->
-<!-- <h2> Tableau des Taches qui appartient au brief : <b>{{$value->nomBrief}}</b></h2>
-<br> -->
-<!-- 
+@foreach ($brief as $value)
+<h2> Tableau des Taches qui appartient au brief : <b>{{$value->nomBrief}}</b></h2>
+<br>
+
 <nav class="navbar bg-dark">
   <div class="container-fluid">
   <a class="btn btn-success me-2" href="/tache/create/{{$value->id}}" type="button">Ajouter tache</a>
@@ -17,10 +17,10 @@ Liste des Tâches
       <button class="btn btn-success" type="submit">Search</button>
     </form>
   </div>
-</nav> -->
+</nav>
 
 
-<!-- @endforeach -->
+@endforeach
 
 <div id="ajax_search_result">
     <table class="table table-dark table-striped-columns">
