@@ -24,7 +24,5 @@ class Apprenant extends Model
 
     public $timestamps = true;
 
-    public function apprenantsBrief(){
-        return $this->belongsToMany(Brief::class, 'briefs_apprenants');
-    }
+
 }
